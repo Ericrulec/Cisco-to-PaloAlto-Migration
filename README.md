@@ -24,10 +24,10 @@ Prepare the scripts by modifying `config.py` first. `IP` is the ip address or do
 
 ## Get the data
 
-Before running the scripts you need an API user from Cisco FMC with GET privileges. When ready run `get_objects.py` and `get_policy.py` as standalone scripts to retrieve the data. The scripts will prompt you for the _username_ and _password_ to the specified Cisco FMC.
+Before running the scripts you need an API user from Cisco FMC with GET privileges. When ready run `Get_objects.py` and `Get_policy.py` as standalone scripts to retrieve the data. The scripts will prompt you for the _username_ and _password_ to the specified Cisco FMC.
 
 - Create API user
-- Run `get_objects` and `get_policy` separately. And use the credentials from above when prompted.
+- Run `Get_objects` and `Get_policy` separately. And use the credentials from above when prompted.
 
 The data will be saved as a selection of the most important data in JSON format inside the `./data` folder.
 
@@ -77,9 +77,9 @@ Import Objects in the following order, then Policies. _(The **\*** (star) repres
 
 ## Compare CSV changes
 
-If you want to compare and output the difference between two or more csv files. Read and modify **compare_csv.py** by adding csv files you want to compare. Create a new folder inside the working directory called **old**, and move all the old csv files from **./data** folder into **./old**. Then run **compare_csv.py**. The output will be inside **./data/diff**.
+If you want to compare and output the difference between two or more csv files. Read and modify **Compare_csv.py** by adding csv files you want to compare. Create a new folder inside the working directory called **old**, and move all the old csv files from **./data** folder into **./old**. Then run **Compare_csv.py**. The output will be inside **./data/diff**.
 
-_compare_csv.py_
+_Compare_csv.py_
 
 ```python
 
