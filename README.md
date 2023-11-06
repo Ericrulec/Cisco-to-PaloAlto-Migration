@@ -38,7 +38,7 @@ The data will be saved as a selection of the most important data in JSON format 
 
 If the retrieval of data fails because of SSL, and you for some reason want to ignore the SSL certificate verification. You can do so by editing `config.py`.
 
-- Edit `VERIFY` variable inside `config.py` to **False**
+- Edit `SSL_VERIFY` variable inside `config.py` to **False**
 
 <br>
 

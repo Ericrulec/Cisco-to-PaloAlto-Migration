@@ -28,7 +28,7 @@ def get_token(fmcIP, path, username, password):
 
     try:
         # always verify the SSL cert in prod!
-        r = requests.post(f"https://{fmcIP}/{path}", auth=(f"{username}", f"{password}"), verify=config.VERIFY)
+        r = requests.post(f"https://{fmcIP}/{path}", auth=(f"{username}", f"{password}"), verify=config.SSL_VERIFY)
     except requests.exceptions.HTTPError as errh:
         raise SystemExit(errh)
     except requests.exceptions.RequestException as err:

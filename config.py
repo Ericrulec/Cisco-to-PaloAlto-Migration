@@ -8,7 +8,7 @@ POLICIES = []
 OBJECTS = ["networks", "fqdns", "hosts", "ranges", "urls", "urlgroups", "ports", "portobjectgroups", "networkgroups"]
 
 # Verify SSL Certificate
-VERIFY = True
+SSL_VERIFY = True
 
 # Application mapping from Cisco to Palo Alto. Configure by adding more known mappings. {"Cisco app": "Palo Alto app"}
 APP_MAPPING = {"HTTP": "web-browsing",

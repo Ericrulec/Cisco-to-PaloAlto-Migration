@@ -33,7 +33,7 @@ def get_objects(ip: str, header: dict, obj: str) -> list:
         path = f"/api/fmc_config/v1/domain/{header['DOMAIN_UUID']}/object/{obj}{offset}{limit}&expanded=true"
         try:
             # always verify the SSL cert in prod!
-            r = requests.get(f"https://{ip}/{path}", headers=header, verify=config.VERIFY)
+            r = requests.get(f"https://{ip}/{path}", headers=header, verify=config.SSL_VERIFY)
             if (not r.status_code == 200):
                 r.raise_for_status()
         except requests.exceptions.HTTPError as errh:
