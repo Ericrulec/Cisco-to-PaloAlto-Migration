@@ -23,8 +23,8 @@ returns: access token, refresh token, domain uuid
 """
 def get_token(fmcIP, path, username, password):
     # lets disable the certificate warning first (this is NOT advised in prod)
-    # from requests.packages.urllib3.exceptions import InsecureRequestWarning
-    # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+    from requests.packages.urllib3.exceptions import InsecureRequestWarning
+    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
     try:
         # always verify the SSL cert in prod!
@@ -48,8 +48,8 @@ returns: none
 """
 def refresh_token(fmcIP, path, header):
     # lets disable the certificate warning first (this is NOT advised in prod)
-    # from requests.packages.urllib3.exceptions import InsecureRequestWarning
-    # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+    from requests.packages.urllib3.exceptions import InsecureRequestWarning
+    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
     try:
         # always verify the SSL cert in prod!
