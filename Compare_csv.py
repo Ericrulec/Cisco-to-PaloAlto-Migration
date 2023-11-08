@@ -36,10 +36,10 @@ if __name__ == "__main__":
     policies = config.POLICIES
     for dic in policies:
         for policy_name, uuid in dic.items():
-            checklist = [f"SecurityRules_{policy_name}.csv", f"SecurityRulesApplication_{policy_name}.csv"]
+            checklist = [f"SecurityRules_{policy_name}.csv", f"SecurityRulesApplications_{policy_name}.csv"]
             for name in checklist:
                 try:
-                    with open(f"./old/{name}", 'r') as t1, open(name, 'r') as t2:
+                    with open(f"./old/{name}", 'r') as t1, open(f"./data/{name}", 'r') as t2:
                         fileone = t1.readlines()
                         filetwo = t2.readlines()
 

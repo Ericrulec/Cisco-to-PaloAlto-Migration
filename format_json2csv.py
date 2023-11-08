@@ -131,7 +131,7 @@ def format_SecurityPolicy(policy_name, jsondata):
                     member = members["name"]
                     # Define application mapping, to transform Cisco applications into equivalent PaloAlto applications.
                     app_mapping = config.APP_MAPPING
-                    if (app_mapping[member]):
+                    if (member in app_mapping):
                         member = app_mapping[member]
                     applications += member + ","
                 applications = applications[:-1]
