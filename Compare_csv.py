@@ -45,7 +45,13 @@ if __name__ == "__main__":
 
                     with open(f"./data/diff/diff_{name}", 'w') as outFile:
                         for line in filetwo:
-                            if line not in fileone:
+                            write = True
+                            # Check and compare the two lines
+                            for line2 in fileone:
+                                # Ignore index when comparing
+                                if line[line.find(";"):] == line2[line2.find(";"):]:
+                                    write = False
+                            if write:
                                 outFile.write(line)
                 except FileNotFoundError as err:
                     print("Error: ", err)
