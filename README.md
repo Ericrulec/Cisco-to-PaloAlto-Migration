@@ -2,7 +2,7 @@
 
 ## Preface
 
-> **Note**  
+> [!NOTE]
 > Tested with Cisco FMC version `v2.0` and Expedition version `v1.2.72`.
 
 Python scripts for migrating from **Cisco FMC** to **Palo Alto** via Expedition CSV import option.
@@ -33,7 +33,7 @@ The data will be saved as a selection of the most important data in JSON format 
 
 ### SSL Issues
 
-> **Warning**
+> [!WARNING]
 > Ignore if the retrieval of data was successful.
 
 If the retrieval of data fails because of SSL, and you for some reason want to ignore the SSL certificate verification. You can do so by editing `config.py`.
@@ -70,7 +70,7 @@ Import Objects in the following order, then Policies. _(The **\*** (star) repres
 - Import Policies
   - `SecurityRules_*.csv`
 
-> **Note**
+> [!NOTE]
 > Because of how PaloAlto differs from Cisco, `SecurityRulesApplications_*.csv` has been added as a reference to inspect the rules from Cisco that include applications. **Note** however that these application security rules are not excluded or separated from **Security\_\*.csv**, simply duplicated. Which means you can safely ignore these reference files if you have no need for them.
 
 <br>
