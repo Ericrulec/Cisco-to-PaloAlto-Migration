@@ -11,89 +11,90 @@ When: Run as a standalone script *after* running `get_objects.py` and `get_polic
 """
 if __name__ == "__main__":
     # Write CSV Header, i.e. Column Header for each Address object
+
     # Address-fqdns.csv
-    with open("data/Address-fqdns.csv", "w", encoding="utf-8") as f:
+    with open("data/Address-fqdns.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "ipaddress_cidr", "type"])
-    with open("data/objects.fqdns.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.fqdns.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
         j2c.format_AddressFqdns("data/Address-fqdns.csv", python_obj)
 
     # Address-Hosts.csv
-    with open("data/Address-Hosts.csv", "w", encoding="utf-8") as f:
+    with open("data/Address-Hosts.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "ipaddress", "type"])
-    with open("data/objects.hosts.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.hosts.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
         j2c.format_AddressHosts("data/Address-Hosts.csv", python_obj)
 
     # Address-Networks.csv
-    with open("data/Address-Networks.csv", "w", encoding="utf-8") as f:
+    with open("data/Address-Networks.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "ipaddress_cidr", "type"])
-    with open("data/objects.networks.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.networks.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
         j2c.format_AddressNetworks("data/Address-Networks.csv", python_obj)
 
     # Address-Ranges.csv
-    with open("data/Address-Ranges.csv", "w", encoding="utf-8") as f:
+    with open("data/Address-Ranges.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "ipaddress_range", "type"])
-    with open("data/objects.ranges.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.ranges.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
         j2c.format_AddressRanges("data/Address-Ranges.csv", python_obj)
 
     # Networkgroups.csv
-    with open("data/AddressGroups.csv", "w", encoding="utf-8") as f:
+    with open("data/AddressGroups.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "members"])
-    with open("data/objects.networkgroups.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.networkgroups.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
-        j2c.format_AddressGroups("data/AddressGroups.csv", python_obj)
+        j2c.format_Groups("data/AddressGroups.csv", python_obj)
 
     # Ports.csv
-    with open("data/Services.csv", "w", encoding="utf-8") as f:
+    with open("data/Services.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "dport", "protocol"])
-    with open("data/objects.ports.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.ports.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
         j2c.format_Ports("data/Services.csv", python_obj)
 
     # PortsGroups.csv
-    with open("data/ServiceGroups.csv", "w", encoding="utf-8") as f:
+    with open("data/ServiceGroups.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "members"])
-    with open("data/objects.portobjectgroups.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.portobjectgroups.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
-        j2c.format_AddressGroups("data/ServiceGroups.csv", python_obj)
+        j2c.format_Groups("data/ServiceGroups.csv", python_obj)
 
     # Urls.csv
-    with open("data/Urls.csv", "w", encoding="utf-8") as f:
+    with open("data/Urls.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "ipaddress_cidr", "type"])
-    with open("data/objects.urls.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.urls.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
         j2c.format_AddressUrls("data/Urls.csv", python_obj)
 
     # UrlGroups.csv
-    with open("data/UrlGroups.csv", "w", encoding="utf-8") as f:
+    with open("data/UrlGroups.csv", "w", newline="", encoding="utf-8") as f:
         header = csv.writer(f, delimiter=";")
         header.writerow(["name", "members"])
-    with open("data/objects.urlgroups.json", 'r', encoding='utf-8') as f:
+    with open("data/json/objects.urlgroups.json", 'r', encoding='utf-8') as f:
         python_obj = json.load(f)
-        j2c.format_AddressGroups("data/UrlGroups.csv", python_obj)
+        j2c.format_Groups("data/UrlGroups.csv", python_obj)
 
     # Security Rules
     policies = config.POLICIES
     for dic in policies:
         for policy_name, uuid in dic.items():
-            with open(f"data/SecurityRules_{policy_name}.csv", "w", encoding="utf-8") as f:
+            with open(f"data/SecurityRules_{policy_name}.csv", "w", newline="", encoding="utf-8") as f:
                 header = csv.writer(f, delimiter=";")
                 header.writerow(["index", "name", "from", "to", "action", "src", "dst", "app", "sport", "service", "type"])
-            with open(f"data/SecurityRulesApplications_{policy_name}.csv", "w", encoding="utf-8") as f:
+            with open(f"data/SecurityRulesApplications_{policy_name}.csv", "w", newline="", encoding="utf-8") as f:
                 header = csv.writer(f, delimiter=";")
                 header.writerow(["index", "name", "from", "to", "action", "src", "dst", "app", "sport", "service", "type"])
-            with open(f"data/policy.{policy_name}.json", 'r', encoding='utf-8') as f:
+            with open(f"data/json/policy.{policy_name}.json", 'r', encoding='utf-8') as f:
                 python_obj = json.load(f)
                 j2c.format_SecurityPolicy(policy_name, python_obj)
 

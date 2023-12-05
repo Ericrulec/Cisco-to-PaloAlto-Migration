@@ -56,8 +56,8 @@ def get_policy(ip: str, header: dict, policy_UUID: str, policy_name: str) -> exi
             print("Error reading json_data:", e)
         i += 1
     try:
-        with open(f'data/policy.{policy_name}.json', 'w', encoding='utf-8') as f:
-            print(f"=> Writing {policy_name} data to: {str(os.getcwd())}\\data\\policy.{policy_name}.json")
+        with open(f'data/json/policy.{policy_name}.json', 'w', encoding='utf-8') as f:
+            print(f"=> Writing {policy_name} data to: {str(os.getcwd())}\\data\\json\\policy.{policy_name}.json")
             json.dump(object_list, f, ensure_ascii=False, indent=4)
     except Exception as err:
         raise SystemExit(err)
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     header = {}
     header = token.get_token(ip, path, u, p)
 
-    pathlib.Path('data').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('data/json').mkdir(parents=True, exist_ok=True)
 
     # retrieve the policies, and then write to file as `policy.{policy}.json`
     policies = config.POLICIES

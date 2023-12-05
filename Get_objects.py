@@ -61,8 +61,8 @@ def get_objects(ip: str, header: dict, obj: str) -> list:
             print("Error reading json_data:", e)
         i += 1
     try:
-        with open(f'data/objects.{obj}.json', 'w', encoding='utf-8') as f:
-            print(f"=> Writing {obj} data to: {str(os.getcwd())}\\data\\objects.{obj}.json")
+        with open(f'data/json/objects.{obj}.json', 'w', encoding='utf-8') as f:
+            print(f"=> Writing {obj} data to: {str(os.getcwd())}\\data\\json\\objects.{obj}.json")
             json.dump(object_list, f, ensure_ascii=False, indent=4)
     except Exception as err:
         raise SystemExit(err)
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     header = {}
     header = token.get_token(ip, path, u, p)
 
-    pathlib.Path('data').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('data/json').mkdir(parents=True, exist_ok=True)
 
     objects = config.OBJECTS
     # retrieve the objects, and then write to file as `objects.{obj}.json`

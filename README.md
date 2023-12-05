@@ -29,7 +29,7 @@ Before running the scripts you need an API user from Cisco FMC with GET privileg
 - Create API user
 - Run `Get_objects` and `Get_policy` separately. And use the credentials from above when prompted.
 
-The data will be saved as a selection of the most important data in JSON format inside the `./data` folder.
+The data will be saved as a selection of the most important data in JSON format inside the `./data/json` folder.
 
 ### SSL Issues
 

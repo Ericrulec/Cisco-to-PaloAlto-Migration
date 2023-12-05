@@ -2,39 +2,43 @@ import csv
 import config
 
 def format_AddressNetworks(filename, jsondata):
-    with open(filename, "a+", encoding="utf-8") as f:
+    with open(filename, "a+", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter=";")
         # header.writerow(["name", "ipaddress_cidr", "type"])
         for item in jsondata:
             w.writerow([item["name"],
                         item["value"],
                         item["type"]])
+
 def format_AddressRanges(filename, jsondata):
-    with open(filename, "a+", encoding="utf-8") as f:
+    with open(filename, "a+", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter=";")
         # header.writerow(["name", "ipaddress_range", "type"])
         for item in jsondata:
             w.writerow([item["name"],
                         item["value"],
                         item["type"]])
+
 def format_AddressFqdns(filename, jsondata):
-    with open(filename, "a+", encoding="utf-8") as f:
+    with open(filename, "a+", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter=";")
         # header.writerow(["name", "ipaddress_cidr", "type"])
         for item in jsondata:
             w.writerow([item["name"],
                         item["value"],
                         item["type"]])
+
 def format_AddressHosts(filename, jsondata):
-    with open(filename, "a+", encoding="utf-8") as f:
+    with open(filename, "a+", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter=";")
         # header.writerow(["name", "ipaddress", "ipaddress_range", "type", "ipaddress", "members"])
         for item in jsondata:
             w.writerow([item["name"],
                         item["value"],
                         item["type"]])
+
 def format_AddressUrls(filename, jsondata):
-    with open(filename, "a+", encoding="utf-8") as f:
+    with open(filename, "a+", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter=";")
         # header.writerow(["name", "ipaddress_cidr", "type"])
         for item in jsondata:
@@ -42,9 +46,17 @@ def format_AddressUrls(filename, jsondata):
                         item["url"],
                         item["type"]])
 
+def format_Ports(filename, jsondata):
+    with open(filename, "a+", newline="", encoding="utf-8") as f:
+        w = csv.writer(f, delimiter=";")
+        # header.writerow(["name", "port", "protocol"])
+        for item in jsondata:
+            w.writerow([item["name"],
+                        item["port"],
+                        item["protocol"].lower()])
 
-def format_AddressGroups(filename, jsondata):
-    with open(filename, "a+", encoding="utf-8") as f:
+def format_Groups(filename, jsondata):
+    with open(filename, "a+", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter=";")
         # header.writerow(["name", "objects"])
         for item in jsondata:
@@ -55,18 +67,9 @@ def format_AddressGroups(filename, jsondata):
             w.writerow([item["name"],
                         csvMembers])
 
-def format_Ports(filename, jsondata):
-    with open(filename, "a+", encoding="utf-8") as f:
-        w = csv.writer(f, delimiter=";")
-        # header.writerow(["name", "port", "protocol"])
-        for item in jsondata:
-            w.writerow([item["name"],
-                        item["port"],
-                        item["protocol"].lower()])
-
 
 def format_SecurityPolicy(policy_name, jsondata):
-    with open(f"data/SecurityRules_{policy_name}.csv", "a+", encoding="utf-8") as f1, open(f"data/SecurityRulesApplications_{policy_name}.csv", "a+") as f2:
+    with open(f"data/SecurityRules_{policy_name}.csv", "a+", newline="", encoding="utf-8") as f1, open(f"data/SecurityRulesApplications_{policy_name}.csv", "a+", newline="", encoding="utf-8") as f2:
         w_SR = csv.writer(f1, delimiter=";")
         w_SRA = csv.writer(f2, delimiter=";")
 
