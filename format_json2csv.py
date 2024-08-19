@@ -97,16 +97,24 @@ def format_SecurityPolicy(policy_name, jsondata):
 
             sourceNetworks = ""
             if "sourceNetworks" in item:
-                for members in item["sourceNetworks"]["objects"]:
-                    sourceNetworks += members["name"] + ","
+                if "literals" in item["sourceNetworks"]:
+                    for members in item["sourceNetworks"]["literals"]:
+                        sourceNetworks += members["name"] + ","
+                if "objects" in item["sourceNetworks"]:
+                    for members in item["sourceNetworks"]["objects"]:
+                        sourceNetworks += members["name"] + ","
                 sourceNetworks = sourceNetworks[:-1]
             else:
                 sourceNetworks = "any"
 
             destinationNetworks = ""
             if "destinationNetworks" in item:
-                for members in item["destinationNetworks"]["objects"]:
-                    destinationNetworks += members["name"] + ","
+                if "literals" in item["destinationNetworks"]:
+                    for members in item["destinationNetworks"]["literals"]:
+                        destinationNetworks += members["name"] + ","
+                if "objects" in item["destinationNetworks"]:
+                    for members in item["destinationNetworks"]["objects"]:
+                        destinationNetworks += members["name"] + ","
                 destinationNetworks = destinationNetworks[:-1]
             else:
                 destinationNetworks = "any"

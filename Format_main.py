@@ -10,6 +10,7 @@ Usage: Format data from `get_objects.py` and `get_policy.py` into csv data that 
 When: Run as a standalone script *after* running `get_objects.py` and `get_policy.py`.
 """
 if __name__ == "__main__":
+    print("===Starting JSON to CSV formatter===")
     # Write CSV Header, i.e. Column Header for each Address object
 
     # Address-fqdns.csv
@@ -86,6 +87,8 @@ if __name__ == "__main__":
 
     # Security Rules
     policies = config.POLICIES
+    if not policies:
+        print("[WARNING] Policy list at config.py is empty -> Skipping Policy formatting!")
     for dic in policies:
         for policy_name, uuid in dic.items():
             with open(f"data/SecurityRules_{policy_name}.csv", "w", newline="", encoding="utf-8") as f:
@@ -97,5 +100,5 @@ if __name__ == "__main__":
             with open(f"data/json/policy.{policy_name}.json", 'r', encoding='utf-8') as f:
                 python_obj = json.load(f)
                 j2c.format_SecurityPolicy(policy_name, python_obj)
-
+    print("<> Formatting Completed without errors! <>")
 
